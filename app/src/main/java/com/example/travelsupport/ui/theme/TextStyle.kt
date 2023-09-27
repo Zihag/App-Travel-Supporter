@@ -13,6 +13,16 @@ val TitleLight2 = TextStyle(
     fontFamily = Kanit_Light
 )
 
+val TitleBold2 = TextStyle(
+    fontSize = 15.sp,
+    fontFamily = Kanit_Bold
+)
+
+val TitleSemiBold2 = TextStyle(
+    fontSize = 15.sp,
+    fontFamily = Kanit_SemiBold
+)
+
 val H1Bold = TextStyle(
     fontSize = 35.sp,
     fontFamily = Kanit_Bold

@@ -3,7 +3,6 @@ package com.example.travelsupport.module.screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -15,9 +14,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -29,12 +26,12 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
 import com.example.travelsupport.R
-import com.example.travelsupport.ui.theme.Gray1
 import com.example.travelsupport.ui.theme.H1Bold
+import com.example.travelsupport.ui.theme.TitleBold2
 import com.example.travelsupport.ui.theme.TitleLight2
+import com.example.travelsupport.ui.theme.TitleSemiBold2
 
 @Composable
 fun AccountScreen() {
@@ -81,7 +78,7 @@ fun AccountScreen() {
                         .padding(vertical = 30.dp)
                         .shadow(10.dp, RoundedCornerShape(20.dp)),
                         colors = ButtonDefaults.buttonColors(Color.Black)) {
-                        Text(text = "Đăng nhập")
+                        Text(text = "Đăng nhập", style = TitleSemiBold2)
                     }
                 }
             }
