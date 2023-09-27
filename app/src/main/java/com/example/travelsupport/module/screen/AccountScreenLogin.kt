@@ -77,8 +77,6 @@ fun AccountScreenLogin() {
                 .background(Color.Transparent),
                 contentAlignment = Alignment.Center) {
                 Column(modifier = Modifier.padding(horizontal = 15.dp)) {
-                    Text(text = "Đăng nhập để dễ dàng lưu trữ và khám phá cho những kỳ nghỉ sắp tới",
-                        style = TitleLight2)
                     OutlinedButton(onClick = {}, modifier = Modifier
                         .fillMaxWidth()
                         .padding(vertical = 30.dp),
