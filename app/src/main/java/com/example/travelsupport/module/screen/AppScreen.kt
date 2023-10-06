@@ -14,8 +14,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.NavHost
@@ -24,6 +26,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.travelsupport.module.screen.navigation.Screens
 import com.example.travelsupport.module.screen.navigation.listofNavItem
+import com.example.travelsupport.module.splash.SplashScreen
 import com.example.travelsupport.ui.theme.LightBlue
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -69,7 +72,7 @@ fun AppScreen() {
                 .padding(paddingValues)
         ){
             composable(route = Screens.HomeScreen.name){
-                HomeScreen()
+                HomeScreen(navController)
             }
             composable(route = Screens.FavoriteScreen.name){
                 FavoriteScreen()
@@ -82,5 +85,20 @@ fun AppScreen() {
             }
         }
 
+    }
+}
+
+
+//Home sang Search
+@Composable
+fun AppNavigation() {
+    val navController = rememberNavController()
+    NavHost(navController = navController, startDestination = "app_screen"){
+        composable("app_screen"){
+            AppScreen()
+        }
+        composable("search_screen"){
+            SearchScreen()
+        }
     }
 }

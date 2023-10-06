@@ -25,7 +25,6 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.travelsupport.R
 import com.example.travelsupport.module.screen.AppScreen
-import com.example.travelsupport.module.screen.MainScreen
 import kotlinx.coroutines.delay
 
 @Composable

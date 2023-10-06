@@ -4,5 +4,5 @@ enum class Screens {
     HomeScreen,
     FavoriteScreen,
     PlanScreen,
-    AccountScreen
+    AccountScreen,
 }
