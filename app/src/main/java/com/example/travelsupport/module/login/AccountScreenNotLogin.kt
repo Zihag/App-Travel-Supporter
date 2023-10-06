@@ -1,11 +1,9 @@
 package com.example.travelsupport.module.screen
 
 
-import androidx.compose.foundation.BorderStroke
+import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -18,35 +16,36 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
 import com.example.travelsupport.R
 import com.example.travelsupport.ui.theme.H1Bold
-import com.example.travelsupport.ui.theme.TitleBold2
 import com.example.travelsupport.ui.theme.TitleLight2
 import com.example.travelsupport.ui.theme.TitleSemiBold2
 
+
+
 @Composable
-fun AccountScreenLogin() {
+fun AccountScreenNotLogin() {
     Box(modifier = Modifier.fillMaxSize()) {
         Column(
             modifier = Modifier.fillMaxSize(),
         ) {
             Box(modifier = Modifier
                 .fillMaxWidth()
-                .height(200.dp)) {
+                .height(130.dp)) {
                 Row(modifier = Modifier
                     .fillMaxWidth()
                     .zIndex(1f)) {
@@ -66,7 +65,6 @@ fun AccountScreenLogin() {
                         .zIndex(0f)
                         .clip(RoundedCornerShape(bottomStart = 50.dp, bottomEnd = 50.dp)),
                     contentScale = ContentScale.Crop)
-                Text(text = "Name", style = TitleSemiBold2, fontSize = 20.sp,modifier = Modifier.padding(start = 300.dp, top = 80.dp))
             }
             Spacer(modifier = Modifier
                 .fillMaxWidth()
@@ -77,20 +75,23 @@ fun AccountScreenLogin() {
                 .background(Color.Transparent),
                 contentAlignment = Alignment.Center) {
                 Column(modifier = Modifier.padding(horizontal = 15.dp)) {
-                    OutlinedButton(onClick = {}, modifier = Modifier
+                    Text(text = "Đăng nhập để dễ dàng lưu trữ và khám phá cho những kỳ nghỉ sắp tới",
+                        style = TitleLight2)
+                    Button(onClick = {}, modifier = Modifier
                         .fillMaxWidth()
-                        .padding(vertical = 30.dp),
-                        border = BorderStroke(3.dp, Color.Black)
-                    ) {
-                        Text(text = "Đăng xuất", style = TitleSemiBold2, color = Color.Black)
+                        .padding(vertical = 30.dp)
+                        .shadow(10.dp, RoundedCornerShape(20.dp)),
+                        colors = ButtonDefaults.buttonColors(Color.Black)) {
+                        Text(text = "Đăng nhập", style = TitleSemiBold2)
                     }
                 }
             }
         }
     }
 }
+
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
-fun AccountLoginPreview(){
-    AccountScreenLogin()
+fun AccountPreview(){
+    AccountScreenNotLogin()
 }

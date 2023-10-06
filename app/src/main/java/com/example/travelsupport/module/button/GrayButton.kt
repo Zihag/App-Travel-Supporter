@@ -29,7 +29,8 @@ fun GrayButton(
     textColor: Color,
     icon: @Composable () -> Unit, // Tham số cho biểu tượng từ ảnh PNG
     modifier: Modifier = Modifier,
-    fontFamily: FontFamily? = null
+    fontFamily: FontFamily? = null,
+    onclick: ()->Unit
 ) {
     Button(
         onClick = {},
@@ -67,6 +68,7 @@ fun GrayButtonPreview(){
                 modifier = Modifier.size(24.dp)
             )
         },
-        fontFamily = Kanit_Light
+        fontFamily = Kanit_Light,
+        onclick = {}
     )
 }

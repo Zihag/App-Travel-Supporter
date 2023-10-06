@@ -36,8 +36,10 @@ import com.example.travelsupport.ui.theme.LightBlue
 import com.example.travelsupport.ui.theme.White1
 
 
+// BỎ
 @Composable
 fun MainScreen() {
+
     val selectedItem = rememberSaveable { mutableStateOf(0) }
 
     Column(verticalArrangement = Arrangement.Bottom,
@@ -171,7 +173,7 @@ fun MainScreen() {
         0 -> HomeScreen()
         1 -> FavoriteScreen()
         2 -> PlanScreen()
-        3 -> AccountScreen()
+        3 -> AccountScreenNotLogin()
     }
 }
 @Preview(showSystemUi = true, showBackground = true)

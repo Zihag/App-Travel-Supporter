@@ -24,6 +24,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.travelsupport.R
+import com.example.travelsupport.module.screen.AppScreen
 import com.example.travelsupport.module.screen.MainScreen
 import kotlinx.coroutines.delay
 
@@ -34,8 +35,8 @@ fun Navigation() {
         composable("splash_screen"){
             SplashScreen(navController = navController)
         }
-        composable("main_screen"){
-            MainScreen()
+        composable("app_screen"){
+            AppScreen()
         }
     }
 }
@@ -53,14 +54,16 @@ fun SplashScreen(navController: NavController) {
             })
         )
         delay(2000L)
-        navController.navigate("main_screen")
+        navController.navigate("app_screen")
     }
     Box(modifier = Modifier
         .fillMaxSize(),
         contentAlignment = Alignment.Center) {
         Image(painter = painterResource(id = R.drawable.bgsplash2),
             contentDescription = null,
-            modifier = Modifier.alpha(1f).scale(1.5f))
+            modifier = Modifier
+                .alpha(1f)
+                .scale(1.5f))
         Image(painter = painterResource(id = R.drawable.adventurer1), contentDescription = null, modifier = Modifier.scale(scale.value))
     }
 }
@@ -74,7 +77,9 @@ fun BoxTest() {
     ) {
         Image(painter = painterResource(id = R.drawable.bgsplash2),
             contentDescription = null,
-            modifier = Modifier.alpha(1f).scale(scale=1.5f))
+            modifier = Modifier
+                .alpha(1f)
+                .scale(scale = 1.5f))
         Image(painter = painterResource(id = R.drawable.adventurer1), contentDescription = null, modifier = Modifier)
     }
 }

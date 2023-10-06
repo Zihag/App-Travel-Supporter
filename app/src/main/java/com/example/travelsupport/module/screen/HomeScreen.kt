@@ -1,5 +1,6 @@
 package com.example.travelsupport.module.screen
 
+import android.content.Intent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -62,7 +63,8 @@ fun HomeScreen(){
                         modifier = Modifier
                             .padding(20.dp, 35.dp, 0.dp, 10.dp)
                             .size(165.dp, 70.dp),
-                        fontFamily = Kanit_Bold
+                        fontFamily = Kanit_Bold,
+                        onclick = {}
                     )
                     GrayButton(
                         text = "Khách sạn",
@@ -77,7 +79,8 @@ fun HomeScreen(){
                         modifier = Modifier
                             .padding(0.dp, 35.dp, 20.dp, 10.dp)
                             .size(165.dp, 70.dp),
-                        fontFamily = Kanit_Bold
+                        fontFamily = Kanit_Bold,
+                        onclick = {}
                     )
                 }
                 Row(horizontalArrangement = Arrangement.SpaceBetween,
@@ -96,7 +99,8 @@ fun HomeScreen(){
                         modifier = Modifier
                             .padding(20.dp, 10.dp, 0.dp, 18.dp)
                             .size(165.dp, 70.dp),
-                        fontFamily = Kanit_Bold
+                        fontFamily = Kanit_Bold,
+                        onclick = {}
                     )
                     GrayButton(
                         text = "Khám phá",
@@ -111,7 +115,8 @@ fun HomeScreen(){
                         modifier = Modifier
                             .padding(0.dp, 10.dp, 20.dp, 18.dp)
                             .size(165.dp, 70.dp),
-                        fontFamily = Kanit_Bold
+                        fontFamily = Kanit_Bold,
+                        onclick = {}
                     )
                 }
             }
