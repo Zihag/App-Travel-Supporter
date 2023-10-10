@@ -5,8 +5,9 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-//import com.example.travelsupport.module.screen.MainScreen
-import com.example.travelsupport.module.splash.Navigation
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
+import com.example.travelsupport.module.screen.navigation.Navigation
 
 class MainActivity : ComponentActivity() {
 
@@ -14,7 +15,8 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Navigation()
+            val navController = rememberNavController()
+            Navigation(navController = navController)
         }
     }
 }

@@ -33,7 +33,7 @@ fun GrayButton(
     onclick: ()->Unit
 ) {
     Button(
-        onClick = {},
+        onClick = {onclick()},
         colors = ButtonDefaults.buttonColors(Color.White),
         shape = RoundedCornerShape(20),
         modifier = modifier

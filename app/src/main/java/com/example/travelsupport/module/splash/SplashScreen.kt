@@ -20,28 +20,30 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.zIndex
 import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.travelsupport.R
 import com.example.travelsupport.module.screen.AppScreen
+import com.example.travelsupport.module.screen.navigation.Screens
 import kotlinx.coroutines.delay
 
-@Composable
-fun Navigation() {
-    val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = "splash_screen"){
-        composable("splash_screen"){
-            SplashScreen(navController = navController)
-        }
-        composable("app_screen"){
-            AppScreen()
-        }
-    }
-}
+//@Composable
+//fun Navigation() {
+//    val navController = rememberNavController()
+//    NavHost(navController = navController, startDestination = "splash_screen"){
+//        composable("splash_screen"){
+//            SplashScreen(navController = navController)
+//        }
+//        composable("app_screen"){
+//            AppScreen()
+//        }
+//    }
+//}
 
 @Composable
-fun SplashScreen(navController: NavController) {
+fun SplashScreen(navHostController: NavHostController) {
     val scale = remember{ Animatable(0f) }
     LaunchedEffect(key1 = true){
         scale.animateTo(
@@ -53,7 +55,7 @@ fun SplashScreen(navController: NavController) {
             })
         )
         delay(2000L)
-        navController.navigate("app_screen")
+        navHostController.navigate(Screens.HomeScreen.name)
     }
     Box(modifier = Modifier
         .fillMaxSize(),

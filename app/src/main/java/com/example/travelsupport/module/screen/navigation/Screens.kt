@@ -5,4 +5,5 @@ enum class Screens {
     FavoriteScreen,
     PlanScreen,
     AccountScreen,
+    SearchScreen
 }

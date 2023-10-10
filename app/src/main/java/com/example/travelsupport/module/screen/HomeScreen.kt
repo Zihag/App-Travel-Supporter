@@ -14,6 +14,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Button
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -24,6 +27,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -32,6 +36,7 @@ import com.example.travelsupport.module.list.CustomListView2
 import com.example.travelsupport.module.list.CustomListView3
 import com.example.travelsupport.R
 import com.example.travelsupport.module.button.GrayButton
+import com.example.travelsupport.module.screen.navigation.BottomBarScaffold
 import com.example.travelsupport.module.splash.SplashScreen
 import com.example.travelsupport.ui.theme.Kanit_Bold
 import com.example.travelsupport.ui.theme.LightBlue
@@ -41,11 +46,19 @@ import com.example.travelsupport.ui.theme.TravelSupportTheme
 
 
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen(navController:NavController){
+fun HomeScreen(navHostController: NavHostController){
+Scaffold (
+    bottomBar ={
+        BottomBarScaffold(navHostController)
+    }
+){
+    paddingValues ->
     Column(modifier = Modifier
         .fillMaxSize()
         .verticalScroll(rememberScrollState())
+        .padding(paddingValues)
     ) {
         Box(modifier = Modifier.background(LightBlue)) {
             Column {
@@ -72,7 +85,9 @@ fun HomeScreen(navController:NavController){
                             .padding(20.dp, 35.dp, 0.dp, 10.dp)
                             .size(165.dp, 70.dp),
                         fontFamily = Kanit_Bold,
-                        onclick = {}
+                        onclick = {
+                            navHostController.navigate("search_screen")
+                        }
                     )
                     GrayButton(
                         text = "Khách sạn",
@@ -90,7 +105,7 @@ fun HomeScreen(navController:NavController){
                         fontFamily = Kanit_Bold,
                         onclick = {
                             //Home sang search
-                            navController.navigate("search_screen")
+
                         }
                     )
                 }
@@ -172,6 +187,7 @@ fun HomeScreen(navController:NavController){
             style = TitleBold1
         )
     }
+}
 }
 
 @Preview(showBackground = true, showSystemUi = true)
