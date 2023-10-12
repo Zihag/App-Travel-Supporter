@@ -1,9 +1,11 @@
 package com.example.travelsupport.module.screen
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.BottomNavigationDefaults
+import androidx.compose.material.Surface
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
@@ -20,10 +22,12 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.example.travelsupport.module.screen.navigation.BottomBarScaffold
 import com.example.travelsupport.module.screen.navigation.Navigation
 import com.example.travelsupport.module.screen.navigation.Screens
 import com.example.travelsupport.module.screen.navigation.listofNavItem
@@ -32,9 +36,15 @@ import com.example.travelsupport.ui.theme.LightBlue
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AppScreen() {
-    val navController = rememberNavController()
-    Navigation(navController = navController)
+fun AppScreen(navHostController: NavHostController) {
+        val navController = rememberNavController()
+        Scaffold(
+            bottomBar = { BottomBarScaffold(navHostController) }
+        ) {paddingValues->
+            Column (modifier = Modifier.padding(paddingValues)){
+                Navigation(navHostController)
+            }
+        }
 //
 //    Scaffold(
 //        bottomBar = {
@@ -90,5 +100,4 @@ fun AppScreen() {
 //
 //    }
 }
-
 

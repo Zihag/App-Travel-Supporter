@@ -27,3 +27,8 @@ val H1Bold = TextStyle(
     fontSize = 35.sp,
     fontFamily = Kanit_Bold
 )
+
+val navigationItem = TextStyle(
+    fontSize = 12.sp,
+    fontFamily = Kanit_Light
+)

@@ -26,23 +26,17 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
 import com.example.travelsupport.module.list.CustomListView1
 import com.example.travelsupport.module.list.CustomListView2
 import com.example.travelsupport.module.list.CustomListView3
 import com.example.travelsupport.R
 import com.example.travelsupport.module.button.GrayButton
 import com.example.travelsupport.module.screen.navigation.BottomBarScaffold
-import com.example.travelsupport.module.splash.SplashScreen
 import com.example.travelsupport.ui.theme.Kanit_Bold
 import com.example.travelsupport.ui.theme.LightBlue
 import com.example.travelsupport.ui.theme.TitleBold1
 import com.example.travelsupport.ui.theme.TitleLight2
-import com.example.travelsupport.ui.theme.TravelSupportTheme
 
 
 

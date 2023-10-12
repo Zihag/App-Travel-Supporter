@@ -17,13 +17,15 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.travelsupport.ui.theme.LightBlue
+import com.example.travelsupport.ui.theme.navigationItem
 
 @Composable
 fun BottomBarScaffold(navHostController: NavHostController) {
     NavigationBar(modifier = Modifier
-        .height(70.dp)
+        .height(50.dp)
         .clip(RoundedCornerShape(20.dp)),
-        containerColor = LightBlue
+        containerColor = LightBlue,
+
     ) {
         val navBackStackEntry by navHostController.currentBackStackEntryAsState()
         val currentDestination = navBackStackEntry?.destination
@@ -43,9 +45,6 @@ fun BottomBarScaffold(navHostController: NavHostController) {
                 icon = {
                     Icon(imageVector = navItem.icon, contentDescription = null)
                 },
-                label = {
-                    Text(text = navItem.label)
-                }
             )
         }
     }

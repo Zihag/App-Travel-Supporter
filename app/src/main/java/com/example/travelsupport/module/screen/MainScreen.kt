@@ -47,47 +47,6 @@
 //        modifier = Modifier
 //            .fillMaxSize()
 //            .zIndex(1f)) {
-//        Row(
-//            modifier = Modifier
-//                .fillMaxWidth() // Đặt chiều rộng của hàng bằng chiều rộng của màn hình
-//        ) {
-//            // Thanh ngang 1
-//            Box(
-//                modifier = Modifier
-//                    .weight(1f)// Chia đều chiều rộng cho ba thanh
-//                    .padding(start = 20.dp, end = 20.dp)
-//                    .height(4.dp)
-//                    .clip(RoundedCornerShape(topStart = 60.dp, topEnd = 60.dp))
-//                    .background(if (selectedItem.value == 0) LightBlue else Color.Transparent),
-//            )
-////             Thanh ngang 2
-//            Box(
-//                modifier = Modifier
-//                    .weight(1f) // Chia đều chiều rộng cho ba thanh
-//                    .padding(start = 20.dp, end = 20.dp)
-//                    .height(4.dp)
-//                    .clip(RoundedCornerShape(topStart = 60.dp, topEnd = 60.dp))
-//                    .background(if (selectedItem.value == 1) LightBlue else Color.Transparent),
-//            )
-//
-//            // Thanh ngang 3
-//            Box(
-//                modifier = Modifier
-//                    .weight(1f) // Chia đều chiều rộng cho ba thanh
-//                    .padding(start = 20.dp, end = 20.dp)
-//                    .height(4.dp)
-//                    .clip(RoundedCornerShape(topStart = 60.dp, topEnd = 60.dp))
-//                    .background(if (selectedItem.value == 2) LightBlue else Color.Transparent),
-//            )
-//            Box(
-//                modifier = Modifier
-//                    .weight(1f) // Chia đều chiều rộng cho ba thanh
-//                    .padding(start = 20.dp, end = 20.dp)
-//                    .height(4.dp)
-//                    .clip(RoundedCornerShape(topStart = 60.dp, topEnd = 60.dp))
-//                    .background(if (selectedItem.value == 3) LightBlue else Color.Transparent),
-//            )
-//        }
 //        BottomNavigation(
 //            modifier = Modifier
 //                .height(55.dp)
@@ -170,7 +129,7 @@
 //        }
 //    }
 //    when (selectedItem.value){
-//        0 -> HomeScreen(nav)
+//        0 -> HomeScreen()
 //        1 -> FavoriteScreen()
 //        2 -> PlanScreen()
 //        3 -> AccountScreenNotLogin()
