@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">TravelSupport</string>
     <string name="map_api">AIzaSyCtAIisramAeqPHmgaPhXoTGTsEDw1hSDo</string>
+    <string name="title_activity_home">HomeActivity</string>
 </resources>

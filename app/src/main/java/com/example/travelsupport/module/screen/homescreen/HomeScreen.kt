@@ -1,4 +1,4 @@
-package com.example.travelsupport.module.screen
+package com.example.travelsupport.module.screen.homescreen
 
 import android.content.Context
 import android.content.Intent
@@ -80,7 +80,7 @@ Scaffold (
                             .size(165.dp, 70.dp),
                         fontFamily = Kanit_Bold,
                         onclick = {
-                            navHostController.navigate("search_screen")
+                            navHostController.navigate("location_search_screen")
                         }
                     )
                     GrayButton(
@@ -120,7 +120,10 @@ Scaffold (
                             .padding(20.dp, 10.dp, 0.dp, 18.dp)
                             .size(165.dp, 70.dp),
                         fontFamily = Kanit_Bold,
-                        onclick = {}
+                        onclick = {
+                            navHostController.navigate("restaurant_search_screen")
+
+                        }
                     )
                     GrayButton(
                         text = "Khám phá",
