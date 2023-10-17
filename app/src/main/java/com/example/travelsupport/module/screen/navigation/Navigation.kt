@@ -8,6 +8,7 @@ import com.example.travelsupport.module.screen.AccountScreenNotLogin
 import com.example.travelsupport.module.screen.FavoriteScreen
 import com.example.travelsupport.module.screen.homescreen.HomeScreen
 import com.example.travelsupport.module.screen.PlanScreen
+import com.example.travelsupport.module.screen.homescreen.hotelsearch.HotelSearchScreen
 import com.example.travelsupport.module.screen.homescreen.placesearch.LocationSearchScreen
 import com.example.travelsupport.module.screen.homescreen.placesearch.LocationViewModel
 import com.example.travelsupport.module.screen.homescreen.restaurantsearch.RestaurantSearchScreen
@@ -38,6 +39,9 @@ fun Navigation(navController: NavHostController) {
         }
         composable("location_search_screen"){
             LocationSearchScreen(navController,LocationViewModel())
+        }
+        composable("hotel_search_screen"){
+            HotelSearchScreen(navController,LocationViewModel())
         }
     }
 }

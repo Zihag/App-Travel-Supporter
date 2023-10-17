@@ -99,6 +99,7 @@ Scaffold (
                         fontFamily = Kanit_Bold,
                         onclick = {
                             //Home sang search
+                            navHostController.navigate("hotel_search_screen")
 
                         }
                     )

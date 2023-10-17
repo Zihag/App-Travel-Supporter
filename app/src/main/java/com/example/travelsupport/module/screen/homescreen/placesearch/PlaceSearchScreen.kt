@@ -21,7 +21,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import com.example.travelsupport.ui.theme.Kanit_Bold
 import com.example.travelsupport.ui.theme.navigationItem
 
 
@@ -29,6 +31,7 @@ import com.example.travelsupport.ui.theme.navigationItem
 @Composable
 fun LocationSearchScreen(navHostController: NavHostController,locationViewModel: LocationViewModel) {
     var searchQuery by remember { mutableStateOf("") }
+    var address by remember { mutableStateOf("") }
     val textFieldColors = TextFieldDefaults.outlinedTextFieldColors(
         textColor = Color.Black, // Màu chữ
         cursorColor = Color.Blue, // Màu dấu nháy
@@ -41,22 +44,28 @@ fun LocationSearchScreen(navHostController: NavHostController,locationViewModel:
             .padding(16.dp)
             .fillMaxSize()
     ) {
+        Text(text = "Địa điểm nổi bật",
+            modifier = Modifier
+                .padding(10.dp,20.dp,0.dp,0.dp),
+            fontSize = 25.sp,
+            fontFamily = Kanit_Bold,
+            lineHeight = 30.sp)
         OutlinedTextField(
             value = searchQuery,
-            onValueChange = { value -> searchQuery = value },
+            onValueChange = { value -> searchQuery = value
+                            address=value},
             label = { Text("Bạn sắp đến đâu", style = navigationItem) },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(8.dp),
             colors = textFieldColors
-
         )
 
         Spacer(modifier = Modifier.height(16.dp))
 
         Button(
             onClick = {
-                locationViewModel.searchLocations("7904AD3CB20F4523B18C73F170779ED9", searchQuery, "vi")
+                locationViewModel.searchLocations("7904AD3CB20F4523B18C73F170779ED9", searchQuery,address, "vi")
             },
             modifier = Modifier.align(Alignment.CenterHorizontally)
         ) {

@@ -1,14 +1,12 @@
-package com.example.travelsupport.module.screen.homescreen.restaurantsearch
+package com.example.travelsupport.module.screen.homescreen.hotelsearch
 
 import android.util.Log
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedTextField
@@ -33,9 +31,8 @@ import com.example.travelsupport.ui.theme.navigationItem
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun RestaurantSearchScreen(navHostController: NavHostController,locationViewModel: LocationViewModel) {
+fun HotelSearchScreen(navHostController: NavHostController,locationViewModel: LocationViewModel) {
     var address by remember { mutableStateOf("") }
-    var searchQuery by remember { mutableStateOf("") }
     val textFieldColors = TextFieldDefaults.outlinedTextFieldColors(
         textColor = Color.Black, // Màu chữ
         cursorColor = Color.Blue, // Màu dấu nháy
@@ -48,40 +45,28 @@ fun RestaurantSearchScreen(navHostController: NavHostController,locationViewMode
             .padding(16.dp)
             .fillMaxSize()
     ) {
-        Text(text = "Nhà hàng",
+        Text(text = "Khách sạn",
             modifier = Modifier
                 .padding(10.dp,20.dp,0.dp,0.dp),
             fontSize = 25.sp,
             fontFamily = Kanit_Bold,
             lineHeight = 30.sp)
-        Row {
             OutlinedTextField(
                 value = address,
                 onValueChange = { value -> address = value },
                 label = { Text("Bạn sắp đến đâu", style = navigationItem) },
                 modifier = Modifier
-                    .width(200.dp)
+                    .fillMaxWidth()
                     .padding(8.dp),
                 colors = textFieldColors
 
             )
-            OutlinedTextField(
-                value = searchQuery,
-                onValueChange = { value -> searchQuery = value },
-                label = { Text("Lọc theo món", style = navigationItem) },
-                modifier = Modifier
-                    .width(200.dp)
-                    .padding(8.dp),
-                colors = textFieldColors
-
-            )
-        }
 
         Spacer(modifier = Modifier.height(16.dp))
 
         Button(
             onClick = {
-                locationViewModel.searchLocations("7904AD3CB20F4523B18C73F170779ED9", searchQuery,address, "vi")
+                locationViewModel.searchLocations("7904AD3CB20F4523B18C73F170779ED9", "hotel, khach san",address, "vi")
             },
             modifier = Modifier.align(Alignment.CenterHorizontally)
         ) {

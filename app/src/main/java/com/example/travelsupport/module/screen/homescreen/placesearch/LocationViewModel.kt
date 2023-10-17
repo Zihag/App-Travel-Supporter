@@ -21,10 +21,10 @@ class LocationViewModel : ViewModel() {
     private val _locations = mutableStateOf<List<diadiem>>(emptyList())
     val locations: State<List<diadiem>> get() = _locations
 
-    fun searchLocations(apiKey: String, searchQuery: String, ngonngu: String) {
+    fun searchLocations(apiKey: String, searchQuery: String,address: String?, ngonngu: String) {
         viewModelScope.launch {
             try {
-                val response = apiService.searchLocations(apiKey, searchQuery, ngonngu)
+                val response = apiService.searchLocations(apiKey, searchQuery, address, ngonngu)
                 _locations.value = response.data
             } catch (e: Exception) {
                 // Xử lý lỗi

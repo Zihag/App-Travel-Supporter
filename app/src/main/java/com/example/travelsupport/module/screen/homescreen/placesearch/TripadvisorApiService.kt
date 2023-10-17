@@ -13,7 +13,7 @@ public interface TripadvisorApiService {
         @Query("searchQuery") searchQuery: String,
 //        @Query("category") category: String?,
 //        @Query("phone") phone: String?,
-//        @Query("address") address: String?,
+        @Query("address") address: String?,
 //        @Query("latLong") latLong: String?,
 //        @Query("radius") radius: Number?,
 //        @Query("radiusUnit") radiusUnit: String?,
