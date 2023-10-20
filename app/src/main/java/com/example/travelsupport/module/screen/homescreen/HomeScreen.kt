@@ -26,12 +26,14 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.content.ContextCompat.startActivity
 import androidx.navigation.NavHostController
 import com.example.travelsupport.module.list.CustomListView1
 import com.example.travelsupport.module.list.CustomListView2
 import com.example.travelsupport.module.list.CustomListView3
 import com.example.travelsupport.R
 import com.example.travelsupport.module.button.GrayButton
+import com.example.travelsupport.module.screen.homescreen.explorebuilding.ExploreActivity
 import com.example.travelsupport.module.screen.navigation.BottomBarScaffold
 import com.example.travelsupport.ui.theme.Kanit_Bold
 import com.example.travelsupport.ui.theme.LightBlue
@@ -43,6 +45,7 @@ import com.example.travelsupport.ui.theme.TitleLight2
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(navHostController: NavHostController){
+    val context= LocalContext.current
 Scaffold (
     bottomBar ={
         BottomBarScaffold(navHostController)
@@ -140,7 +143,13 @@ Scaffold (
                             .padding(0.dp, 10.dp, 20.dp, 18.dp)
                             .size(165.dp, 70.dp),
                         fontFamily = Kanit_Bold,
-                        onclick = {}
+                        onclick = {
+
+
+                            val intent = Intent(context, ExploreActivity::class.java)
+                            startActivity(context,intent, null)
+
+                        }
                     )
                 }
             }
