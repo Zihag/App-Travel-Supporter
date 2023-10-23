@@ -9,8 +9,8 @@ class SelectedLocationModel: ViewModel() {
     private val _selectedLocationId = mutableStateOf<String?>(null)
     val selectedLocationId: State<String?> get() = _selectedLocationId
 
-    fun setSelectedLocationId(locationId: String) {
-        _selectedLocationId.value = locationId
+    fun setSelectedLocationId(id: String) {
+        _selectedLocationId.value = id
 
         Log.d("save id", "Lưu Id địa điểm được chọn: " + selectedLocationId.value)
 

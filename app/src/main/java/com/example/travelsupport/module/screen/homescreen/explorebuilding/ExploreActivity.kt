@@ -28,6 +28,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.example.travelsupport.ui.theme.LightBlue
+import com.example.travelsupport.ui.theme.TitleBold2
 
 
 class ExploreActivity : ComponentActivity() {
@@ -77,11 +79,12 @@ class ExploreActivity : ComponentActivity() {
                                 text = it.name,
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .background(Color.Blue)
+                                    .background(LightBlue)
                                     .padding(8.dp),
                                 textAlign = TextAlign.Center,
                                 fontSize = 20.sp,
-                                color = MaterialTheme.colorScheme.primary
+                                color = Color.Black,
+                                style = TitleBold2
                             )
                             Divider(color = Color.White, thickness = 1.dp)
                         }

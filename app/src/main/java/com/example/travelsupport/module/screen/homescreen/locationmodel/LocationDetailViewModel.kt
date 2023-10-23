@@ -1,14 +1,13 @@
-package com.example.travelsupport.module.screen.homescreen.locationmodel
+package com.example.ailandmarkrecognition.model
+
 
 import android.util.Log
-import androidx.compose.runtime.State
-import androidx.compose.runtime.mutableStateOf
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.travelsupport.module.screen.homescreen.apiservice.Info
-
-import com.example.travelsupport.module.screen.homescreen.apiservice.LocationDetailResponse
-import com.example.travelsupport.module.screen.homescreen.apiservice.TripadvisorApiService
+import com.example.travelsupport.module.screen.homescreen.apiservice.TripAdvisorApi
+import com.example.travelsupport.module.screen.homescreen.apiservice.TripAdvisorLocationDetailResponse
 import kotlinx.coroutines.launch
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -18,27 +17,20 @@ class LocationDetailViewModel : ViewModel() {
         .baseUrl("https://api.content.tripadvisor.com/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
-        .create(TripadvisorApiService::class.java)
+        .create(TripAdvisorApi::class.java)
 
-    private val _locationDetails = mutableStateOf<Info?>(null)
-    val locationDetails: State<Info?> get()= _locationDetails
+    private val _locationDetail = MutableLiveData<TripAdvisorLocationDetailResponse>()
+    val locationDetail: LiveData<TripAdvisorLocationDetailResponse> get() = _locationDetail
 
-    fun getLocationDetails( selectedLocationModel: SelectedLocationModel, apikey: String){
+    fun getLocationDetail(locationId: Int, apiKey: String) {
         viewModelScope.launch {
             try {
-                val response = selectedLocationModel.selectedLocationId.value?.let {
-                    apiService.getLocationDetails(
-                        it.toInt(), apikey)
-                }
-                if (response != null) {
-                    _locationDetails.value = response.info
-                }
-            } catch (e: Exception){
-                //
+                val response = apiService.getLocationDetails(locationId, apiKey)
+                _locationDetail.value = response
+            } catch (e: Exception) {
+                // Xử lý lỗi tại đây
             }
-            Log.d("getlocationDetail", "Lấy thông tin chi tiết của địa điểm"+selectedLocationModel.selectedLocationId.value)
-
         }
-        selectedLocationModel.selectedLocationId.value?.let { it1 -> Log.d("truyền id qua LocationDetailViewModel: ", "truyền id qua LocationDetailViewModel: "+it1) }
+        Log.d("getlocationdetail","ok")
     }
 }

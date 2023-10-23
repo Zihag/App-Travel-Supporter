@@ -1,7 +1,7 @@
-package com.example.signinsignup
+package com.example.travelsupport.module.screen.accountscreen
 
 class SignInResult(
-    val data: com.example.signinsignup.UserData?,
+    val data: UserData?,
     val errorMessage: String?
 )
 data class UserData(

@@ -1,4 +1,4 @@
-package com.example.travelsupport.module.screen
+package com.example.travelsupport.module.screen.accountscreen
 
 
 import android.widget.Toast
@@ -41,7 +41,7 @@ import com.example.travelsupport.ui.theme.TitleLight2
 import com.example.travelsupport.ui.theme.TitleSemiBold2
 
 
-
+//fun AccountScreenNotLogin(navHostController: NavHostController, state: SignInState, onSignInClick:()->Unit)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AccountScreenNotLogin(navHostController: NavHostController) {

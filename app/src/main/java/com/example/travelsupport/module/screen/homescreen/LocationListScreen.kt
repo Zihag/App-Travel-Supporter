@@ -2,6 +2,7 @@ package com.example.travelsupport.module.screen.homescreen
 
 import android.util.Log
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -36,23 +37,20 @@ import com.example.travelsupport.R
 import com.example.travelsupport.module.button.HeartButton
 import com.example.travelsupport.module.screen.homescreen.apiservice.Info
 import com.example.travelsupport.module.screen.homescreen.apiservice.diadiem
-import com.example.travelsupport.module.screen.homescreen.locationmodel.LocationDetailViewModel
 import com.example.travelsupport.module.screen.homescreen.locationmodel.SelectedLocationModel
 import com.example.travelsupport.ui.theme.Kanit_Light
 import com.example.travelsupport.ui.theme.Kanit_SemiBold
+import com.example.travelsupport.ui.theme.LightBlue
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LocationList(locations: List<diadiem>, navHostController:NavHostController,selectedLocationModel: SelectedLocationModel, locationDetailViewModel: LocationDetailViewModel ) {
+fun LocationList(locations: List<diadiem>, navHostController:NavHostController) {
 
-    LazyColumn (modifier = Modifier.fillMaxSize()){
+    LazyColumn (modifier = Modifier.fillMaxSize()
+        .background(LightBlue)){
         items(locations) { it ->
             if (it.address_obj?.city != null){
-                Card(onClick = {
-                    selectedLocationModel.setSelectedLocationId(it.location_id)
-                    locationDetailViewModel.getLocationDetails(selectedLocationModel,"7904AD3CB20F4523B18C73F170779ED9")
-                    navHostController.navigate("location_detail_screen")
-                               },
+                Card(onClick = { navHostController.navigate("location_detail_screen/${it.location_id}") },
                     modifier = Modifier
                         .padding(8.dp)
                         .fillMaxWidth()

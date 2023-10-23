@@ -8,6 +8,7 @@ val TitleBold1 = TextStyle(
     fontFamily = Kanit_Bold
 )
 
+
 val TitleLight2 = TextStyle(
     fontSize = 15.sp,
     fontFamily = Kanit_Light

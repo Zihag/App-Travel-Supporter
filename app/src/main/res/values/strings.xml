@@ -2,4 +2,6 @@
     <string name="app_name">TravelSupport</string>
     <string name="map_api">AIzaSyCtAIisramAeqPHmgaPhXoTGTsEDw1hSDo</string>
     <string name="title_activity_home">HomeActivity</string>
+    <string name="default_web_client_id">340264493192-iek6orjh2kd00gb0bca6o79crmi99u7j.apps.googleusercontent.com</string>
+    <string name="title_activity_login">LoginActivity</string>
 </resources>

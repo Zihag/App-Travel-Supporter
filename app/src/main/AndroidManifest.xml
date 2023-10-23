@@ -5,7 +5,9 @@
     <uses-feature
         android:name="android.hardware.camera"
         android:required="false" />
+
     <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -17,7 +19,11 @@
         android:theme="@style/Theme.TravelSupport"
         tools:targetApi="31">
         <activity
-
+            android:name=".module.screen.accountscreen.LoginActivity"
+            android:exported="false"
+            android:label="@string/title_activity_login"
+            android:theme="@style/Theme.TravelSupport" />
+        <activity
             android:name=".module.screen.homescreen.explorebuilding.ExploreActivity"
             android:exported="false"
             android:label="@string/title_activity_home"

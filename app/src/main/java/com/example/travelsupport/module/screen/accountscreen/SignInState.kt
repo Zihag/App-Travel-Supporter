@@ -1,4 +1,4 @@
-package com.example.signinsignup
+package com.example.travelsupport.module.screen.accountscreen
 
 data class SignInState(
     val isSignInSuccessful: Boolean=false,
