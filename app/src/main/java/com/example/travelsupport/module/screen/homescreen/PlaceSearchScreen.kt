@@ -3,6 +3,7 @@ package com.example.travelsupport.module.screen.homescreen
 import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -29,6 +30,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.example.travelsupport.R
 import com.example.travelsupport.module.button.GrayButton
+import com.example.travelsupport.module.screen.CircularIndeterminateProgressBar
 import com.example.travelsupport.module.screen.homescreen.locationmodel.LocationViewModel
 import com.example.travelsupport.module.screen.homescreen.locationmodel.SelectedLocationModel
 import com.example.travelsupport.ui.theme.Kanit_Bold
@@ -42,6 +44,7 @@ import com.example.travelsupport.ui.theme.navigationItem
 fun LocationSearchScreen(navHostController: NavHostController,locationViewModel: LocationViewModel) {
     var searchQuery by remember { mutableStateOf("") }
     var address by remember { mutableStateOf("") }
+    val loading= locationViewModel.loading.value
     val textFieldColors = TextFieldDefaults.outlinedTextFieldColors(
         textColor = Color.Black, // Màu chữ
         cursorColor = Color.Blue, // Màu dấu nháy
@@ -83,10 +86,14 @@ fun LocationSearchScreen(navHostController: NavHostController,locationViewModel:
         )
 
         Spacer(modifier = Modifier.height(16.dp))
+        Box (modifier = Modifier.fillMaxSize()){
+            locationViewModel.locations.value?.let { locations ->
+                LocationList(locations,navHostController)
+            }
+            CircularIndeterminateProgressBar(isDisplayed = loading, modifier = Modifier.fillMaxSize().padding(top = 20.dp))
 
-        locationViewModel.locations.value?.let { locations ->
-            LocationList(locations,navHostController)
         }
+
     }
     Log.d("SearchScreen", "PlaceSearchScreen")
 }

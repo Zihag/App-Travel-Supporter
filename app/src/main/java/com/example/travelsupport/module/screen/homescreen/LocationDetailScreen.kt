@@ -39,6 +39,7 @@ import androidx.navigation.NavHostController
 import com.example.ailandmarkrecognition.model.LocationDetailViewModel
 import com.example.travelsupport.R
 import com.example.travelsupport.module.button.GrayButton
+import com.example.travelsupport.module.screen.CircularIndeterminateProgressBar
 import com.example.travelsupport.module.screen.homescreen.locationmodel.SelectedLocationModel
 import com.example.travelsupport.ui.theme.H1Bold
 import com.example.travelsupport.ui.theme.Kanit_Light
@@ -57,7 +58,7 @@ fun LocationDetailScreen(
 //    var locationId by remember { mutableStateOf<Int?>(null) }
     val locationDetail by viewModel.locationDetail.observeAsState()
     var id1 = id?.toInt()
-
+    val loading = viewModel.loading.value
     val context = LocalContext.current
     val longitude = locationDetail?.longitude
     val latitude = locationDetail?.latitude
@@ -70,13 +71,15 @@ fun LocationDetailScreen(
     val canOpenMap = mapIntent.resolveActivity(context.packageManager) != null
 
     viewModel.getLocationDetail(id1!!, "7904AD3CB20F4523B18C73F170779ED9")
-
+    CircularIndeterminateProgressBar(isDisplayed = loading, modifier = Modifier.fillMaxSize().padding(top = 300.dp))
         locationDetail?.let {
             Column(modifier = Modifier
                 .fillMaxSize()
                 .background(LightBlue)
                 .verticalScroll(rememberScrollState())) {
-                Image(painter = painterResource(id = R.drawable.hanoi2), contentDescription ="", modifier = Modifier.clip(shape = RoundedCornerShape(20.dp)).padding(5.dp))
+                Image(painter = painterResource(id = R.drawable.hanoi2), contentDescription ="", modifier = Modifier
+                    .clip(shape = RoundedCornerShape(20.dp))
+                    .padding(5.dp))
                 Text(it.name, style = H1Bold, modifier = Modifier.padding(horizontal = 5.dp))
                 Spacer(modifier = Modifier.width(5.dp))
                 it.description?.let { it1 -> Text(it1, style = TitleLight2, modifier = Modifier.padding(horizontal = 5.dp) ) }

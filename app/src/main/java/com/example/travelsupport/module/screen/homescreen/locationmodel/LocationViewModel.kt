@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.travelsupport.module.screen.homescreen.apiservice.TripadvisorApiService
 import com.example.travelsupport.module.screen.homescreen.apiservice.diadiem
+import kotlinx.coroutines.delay
 
 
 import kotlinx.coroutines.launch
@@ -22,15 +23,19 @@ class LocationViewModel : ViewModel() {
 
     private val _locations = mutableStateOf<List<diadiem>>(emptyList())
     val locations: State<List<diadiem>> get() = _locations
+    val loading = mutableStateOf(false)
 
     fun searchLocations(apiKey: String, searchQuery: String,address: String?, ngonngu: String) {
         viewModelScope.launch {
+            loading.value = true
+            delay(2000)
             try {
                 val response = apiService.searchLocations(apiKey, searchQuery, address, ngonngu)
                 _locations.value = response.data
             } catch (e: Exception) {
                 // Xử lý lỗi
             }
+            loading.value = false
         }
         Log.d("searchLocation", "Tìm danh sách địa điểm")
     }

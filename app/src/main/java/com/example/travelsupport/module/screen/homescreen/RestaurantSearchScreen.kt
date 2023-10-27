@@ -3,6 +3,7 @@ package com.example.travelsupport.module.screen.homescreen
 import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -30,6 +31,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.example.travelsupport.R
 import com.example.travelsupport.module.button.GrayButton
+import com.example.travelsupport.module.screen.CircularIndeterminateProgressBar
 import com.example.travelsupport.module.screen.homescreen.locationmodel.LocationViewModel
 import com.example.travelsupport.module.screen.homescreen.locationmodel.SelectedLocationModel
 import com.example.travelsupport.ui.theme.Kanit_Bold
@@ -43,6 +45,8 @@ import com.example.travelsupport.ui.theme.navigationItem
 fun RestaurantSearchScreen(navHostController: NavHostController,locationViewModel: LocationViewModel) {
     var address by remember { mutableStateOf("") }
     var searchQuery by remember { mutableStateOf("Restaurant") }
+    val loading= locationViewModel.loading.value
+
     val textFieldColors = TextFieldDefaults.outlinedTextFieldColors(
         textColor = Color.Black,
         cursorColor = Color.Blue,
@@ -97,8 +101,15 @@ fun RestaurantSearchScreen(navHostController: NavHostController,locationViewMode
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        locationViewModel.locations.value?.let { locations ->
-            LocationList(locations,navHostController)
+//        locationViewModel.locations.value?.let { locations ->
+//            LocationList(locations,navHostController)
+//        }
+        Box (modifier = Modifier.fillMaxSize()){
+            locationViewModel.locations.value?.let { locations ->
+                LocationList(locations,navHostController)
+            }
+            CircularIndeterminateProgressBar(isDisplayed = loading, modifier = Modifier.fillMaxSize().padding(top = 20.dp))
+
         }
     }
     Log.d("SearchScreen", "RestaurantSearchScreen")
