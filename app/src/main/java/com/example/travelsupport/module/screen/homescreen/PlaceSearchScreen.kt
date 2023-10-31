@@ -76,7 +76,7 @@ fun LocationSearchScreen(navHostController: NavHostController,locationViewModel:
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        GrayButton(text = "Search",
+        GrayButton(text = "Tìm",
             textColor = Color.Black,
             icon = {
                 Image(painter = painterResource(id = R.drawable.search), contentDescription = null, Modifier.size(30.dp)) },

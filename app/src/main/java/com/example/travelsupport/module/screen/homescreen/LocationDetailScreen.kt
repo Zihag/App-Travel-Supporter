@@ -136,7 +136,7 @@ fun LocationDetailScreen(
                     .height(100.dp),
                     horizontalArrangement = Arrangement.Center,
                     verticalAlignment = Alignment.CenterVertically) {
-                    GrayButton(text = "Direction",
+                    GrayButton(text = "Chỉ đường",
                         textColor = Color.Black,
                         icon= {
                             Image(

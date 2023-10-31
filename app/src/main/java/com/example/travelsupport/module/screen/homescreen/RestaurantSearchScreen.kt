@@ -44,7 +44,7 @@ import com.example.travelsupport.ui.theme.navigationItem
 @Composable
 fun RestaurantSearchScreen(navHostController: NavHostController,locationViewModel: LocationViewModel) {
     var address by remember { mutableStateOf("") }
-    var searchQuery by remember { mutableStateOf("Restaurant") }
+    var searchQuery by remember { mutableStateOf("Banh mi") }
     val loading= locationViewModel.loading.value
 
     val textFieldColors = TextFieldDefaults.outlinedTextFieldColors(
@@ -90,7 +90,7 @@ fun RestaurantSearchScreen(navHostController: NavHostController,locationViewMode
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        GrayButton(text = "Search",
+        GrayButton(text = "Tìm",
             textColor = Color.Black,
             icon = {
                 Image(painter = painterResource(id = R.drawable.search), contentDescription = null, Modifier.size(30.dp)) },
@@ -109,7 +109,7 @@ fun RestaurantSearchScreen(navHostController: NavHostController,locationViewMode
                 LocationList(locations,navHostController)
             }
             CircularIndeterminateProgressBar(isDisplayed = loading, modifier = Modifier.fillMaxSize().padding(top = 20.dp))
-
+            
         }
     }
     Log.d("SearchScreen", "RestaurantSearchScreen")

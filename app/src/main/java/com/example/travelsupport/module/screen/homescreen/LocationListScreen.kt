@@ -161,22 +161,3 @@ fun LocationList(locations: List<diadiem>, navHostController:NavHostController) 
                         }
                     }
 
-//    LazyColumn {
-//        items(locations) { it ->
-//            if (it.address_obj?.city != null){
-//                Card(modifier = Modifier
-//                    .fillMaxWidth(),) {
-//                    it.name?.let { it1 -> Text(text = it1, modifier = Modifier.padding(16.dp)) }
-//                    it.address_obj.let { it1 -> it1.street1?.let { it2 -> Text(text = it2, modifier = Modifier.padding(16.dp)) } }
-//                    it.address_obj.let { it1 -> it1.address_string?.let { it2 -> Text(text = it2, modifier = Modifier.padding(16.dp)) } }
-//                    Text(text = "${it.address_obj.city}", modifier = Modifier.padding(16.dp))
-//                    if(it.address_obj.state != null){
-//                        Text(text = "${it.address_obj.state}", modifier = Modifier.padding(16.dp))
-//                    }
-//                }
-//                Divider(modifier = Modifier.padding(16.dp))
-//            }
-//        }
-//    }
-//    Log.d("LocationList", "Location List")
-//}
